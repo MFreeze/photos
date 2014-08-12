@@ -1,0 +1,15 @@
+{% extends "gallery/index.html" %}
+{% load static %}
+
+{% block title %}Envoi de Photos {% endblock %}
+
+{% block content %}
+<div>
+    <h2>Partagez vos photos!</h2>
+    <form action="{% url "upload"%}" enctype="multipart/form-data" method="post"> {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Envoyer"/>
+    </form>
+</div>
+<div class="clear"></div>
+{% endblock %}

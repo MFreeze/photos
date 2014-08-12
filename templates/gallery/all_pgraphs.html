@@ -1,0 +1,18 @@
+{% extends "gallery/index.html" %}
+{% load static %}
+
+{% block title %} Liste des Photographes {% endblock %}
+
+{% block content %}
+<div>
+    <ul>
+        {% for pgraph in pgraphs %}
+        <li><a href="{% url "pgraph_gal" pgraph_id=pgraph.id %}">{{ pgraph.firstname }} {{ pgraph.lastname }}</a></li>
+        {% endfor %}
+        <!-- <li><a class="swap" href="#"><img src="images/gallery/3_s.gif" alt="" /><span><img src="images/gallery/3.gif" width="950" height="370" alt="" /></span></a></li>
+        <li><a class="swap" href="#"><img src="images/gallery/4_s.gif" alt="" /><span><img src="images/gallery/4.gif" width="950" height="370" alt="" /></span></a></li>
+        <li class="last"><a class="swap" href="#"><img src="images/gallery/5_s.gif" alt="" /><span><img src="images/gallery/5.gif" width="950" height="370" alt="" /></span></a></li> -->
+    </ul> 
+</div>
+<div class="clear"></div>
+{% endblock %}

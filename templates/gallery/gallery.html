@@ -1,0 +1,19 @@
+{% extends "gallery/index.html" %}
+{% load static %}
+
+{% block title %} Gallerie de {{ desired_aut.firstname }} {{ desired_aut.lastname }} {% endblock %}
+
+{% block content %}
+<div id="gallery">
+    <ul>
+        <li class="placeholder"><img src="{{ MEDIA_URL }}{{ main_pic.med_thumb }}" alt=""/></li>
+        {% for photo in photos %}
+        <li><a href="{% url "photo_gal" pgraph_id=desired_aut.id photo_id=photo.id %}"><img src="{{ MEDIA_URL }}{{ photo.small_thumb }}" alt=""/></a></li>
+        {% endfor %}
+        <!-- <li><a class="swap" href="#"><img src="images/gallery/3_s.gif" alt="" /><span><img src="images/gallery/3.gif" width="950" height="370" alt="" /></span></a></li>
+        <li><a class="swap" href="#"><img src="images/gallery/4_s.gif" alt="" /><span><img src="images/gallery/4.gif" width="950" height="370" alt="" /></span></a></li>
+        <li class="last"><a class="swap" href="#"><img src="images/gallery/5_s.gif" alt="" /><span><img src="images/gallery/5.gif" width="950" height="370" alt="" /></span></a></li> -->
+    </ul> 
+</div>
+<div class="clear"></div>
+{% endblock %}
