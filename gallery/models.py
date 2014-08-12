@@ -7,7 +7,7 @@ class Photograph(models.Model):
     lastname = models.CharField(max_length=100)
     
     def __unicode__(self):
-        return u"" + self.firstname + " " + self.lastname
+        return self.firstname + " " + self.lastname
     
 class Photo(models.Model):
     author = models.ForeignKey('Photograph')
@@ -15,4 +15,4 @@ class Photo(models.Model):
     small_thumb = models.ImageField(upload_to="photos/")
 
     def __unicode__(self):
-        return u"%s" % self.med_thumb.name
+        return "%s" % self.med_thumb.name

@@ -41,8 +41,10 @@ def handle_uploaded_file(f, upload_auth):
         raise Exception(e)
     after = os.listdir(settings.MEDIA_ROOT)
     diff = [fpath for fpath in after if fpath not in before]
+    #print(diff)
 
     for i in diff:
+        #print(i)
         path = settings.MEDIA_ROOT + i
         im_name = upload_auth.firstname + "_" + upload_auth.lastname + "_" + i
         mid_thumb = "m_" + im_name
